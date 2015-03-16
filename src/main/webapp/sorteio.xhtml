@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<ui:param name="pageTitle" value="Amigo Secreto" />
+
+	<ui:define name="header">
+		Amigo Secreto
+	</ui:define>
+
+	<ui:define name="main">
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputText value="Nome" />
+				<h:inputText value="#{sorteioBean.sorteio.nome}" />
+
+				<h:commandButton value="Cadastrar" action="#{sorteioBean.sortear}" />
+			</h:panelGrid>
+		</h:form>
+
+		<h:dataTable value="#{sorteioBean.pares}" var="par">
+			<h:column>
+				<f:facet name="header">Nome do sorteio:</f:facet>
+				<h:outputText value="#{par.sorteio.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Amigo:</f:facet>
+				<h:outputText value="#{par.amigo.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Amigo oculto:</f:facet>
+				<h:outputText value="#{par.amigoOculto.nome}" />
+			</h:column>
+		</h:dataTable>
+	</ui:define>
+
+</ui:composition>
