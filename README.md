@@ -2,5 +2,7 @@
 ===============================================
 - Eclipse
 - MySql
-- WildFly
+- Jboss WildFly
 - JBoss Tools
+- Testes com Junit
+- Autenticação com Apache Shiro
